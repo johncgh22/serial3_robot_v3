@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="serial3_robot_v3">
+  <!--Declaracion de un dummy para la base-->
+  <link name="world" />
+  <joint name="joint_world" type="fixed" >
+    <parent link="world" />
+    <child link="base_link" />
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.021781 -5.6862E-07 0.020002"
+        rpy="0 0 0" />
+      <mass
+        value="0.099185" />
+      <inertia
+        ixx="2.717E-05"
+        ixy="1.1961E-10"
+        ixz="8.6306E-08"
+        iyy="2.9447E-05"
+        iyz="1.1648E-12"
+        izz="4.9838E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/visual/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/collision/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="e1_link">
+    <inertial>
+      <origin
+        xyz="1.5367E-06 0.0020022 0.016219"
+        rpy="0 0 0" />
+      <mass
+        value="0.010841" />
+      <inertia
+        ixx="3.3452E-06"
+        ixy="-1.561E-17"
+        ixz="1.5694E-10"
+        iyy="1.3848E-06"
+        iyz="6.927E-18"
+        izz="3.0336E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/visual/e1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/collision/e1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_e1_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.04815"
+      rpy="0 0 0.025007" />
+    <parent
+      link="base_link" />
+    <child
+      link="e1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="77"
+      velocity="1.43117" />
+  </joint>
+  <link
+    name="e2_link">
+    <inertial>
+      <origin
+        xyz="0.1205 9.6594E-07 -0.00070992"
+        rpy="0 0 0" />
+      <mass
+        value="0.094125" />
+      <inertia
+        ixx="8.4992E-06"
+        ixy="1.9769E-11"
+        ixz="-6.3555E-14"
+        iyy="2.1047E-05"
+        iyz="-7.3048E-15"
+        izz="2.3013E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/visual/e2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/collision/e2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="e1_to_e2_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.00025 0.0305"
+      rpy="1.5708 -1.5679 0" />
+    <parent
+      link="e1_link" />
+    <child
+      link="e2_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="133"
+      velocity="1.291543" />
+  </joint>
+  <link
+    name="e3_link">
+    <inertial>
+      <origin
+        xyz="0.028382 3.6464E-06 0.00077286"
+        rpy="0 0 0" />
+      <mass
+        value="0.010442" />
+      <inertia
+        ixx="2.9789E-06"
+        ixy="-1.5694E-10"
+        ixz="5.7337E-14"
+        iyy="5.9628E-06"
+        iyz="1.0873E-15"
+        izz="3.9543E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/visual/e3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/collision/e3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="e2_to_e3_joint"
+    type="revolute">
+    <origin
+      xyz="0.237 0 0.00025"
+      rpy="0 0 0.017666" />
+    <parent
+      link="e2_link" />
+    <child
+      link="e3_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="66"
+      velocity="2.1293" />
+  </joint>
+  <link
+    name="end_effector">
+    <inertial>
+      <origin
+        xyz="-0.0033957 -1.8646E-10 -1.3153E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.0013531" />
+      <inertia
+        ixx="6.1653E-08"
+        ixy="-6.4106E-16"
+        ixz="-6.4728E-15"
+        iyy="4.7314E-08"
+        iyz="-8.7372E-15"
+        izz="4.683E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/visual/end_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://serial3_robot_v3/meshes/collision/end_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="e3_to_end_effector_joint"
+    type="fixed">
+    <origin
+      xyz="0.18 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="e3_link" />
+    <child
+      link="end_effector" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
