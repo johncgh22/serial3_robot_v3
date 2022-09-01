@@ -7,7 +7,7 @@
   <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
 
   <!-- Cargamos el URDF del robot -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find serial3_robot_v3)/urdf/serial3_robot_v3.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find serial3_robot_v3)/urdf/serial3_robot_v3.xacro'" />
 
   <group ns="serial3v3">
 
