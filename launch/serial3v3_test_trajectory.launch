@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Funcionalidad GDB -->
+    <arg name="debug" default="false" />
+    <arg unless="$(arg debug)" name="launch_prefix" value="" />
+    <arg if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+    <group ns="serial3v3">
+
+        <!-- Cargamos la interfaz de hardware -->
+        <node name="test_trajectory" pkg="ros_control_boilerplate" type="test_trajectory"
+            output="screen" launch-prefix="$(arg launch_prefix)" >
+            <param name="trajectory_controller" value="position_trajectory_controller" />
+            <rosparam file="$(find ros_control_boilerplate)/config/serial3v3_controllers.yaml" command="load" />
+
+        </node>
+
+    </group>
+
+</launch>
+        

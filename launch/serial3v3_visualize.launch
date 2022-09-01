@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Cargamos el URDF del robot -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find serial3_robot_v3)/urdf/serial3_robot_v3.xacro'" />
+    
+  <!-- Lo mostramos en RViz  -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find serial3_robot_v3)/launch/serial3_rviz.rviz"/>
+
+</launch>

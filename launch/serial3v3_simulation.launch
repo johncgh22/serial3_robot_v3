@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Funcionalidad GDB -->
+    <arg name="debug" default="false" />
+    <arg unless="$(arg debug)" name="launch_prefix" value="" />
+    <arg if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+    <!-- Cargamos el URDF del robot -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find serial3_robot_v3)/urdf/serial3_robot_v3.xacro'" />
+
+    <group ns="serial3v3">
+        <!-- Cargamos la interfaz de hardware -->
+        <node name="serial3v3_hardware_interface" pkg="ros_control_boilerplate" type="sim_hw_main"
+          output="screen" launch-prefix="$(arg launch_prefix)"/>
+
+        <!-- Cargamos el controlador -->
+        <rosparam file="$(find serial3_robot_v3)/config/serial3v3_controllers.yaml" command="load" />
+
+        <!-- Cargamos el Administrador de Controladores-->
+        <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false"
+            output="screen" args="spawn joint_state_controller position_trajectory_controller" />
+
+        <!-- Convertimos los estados de las juntas a transformaciones /tf --> 
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    </group>
+
+</launch>

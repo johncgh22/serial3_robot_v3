@@ -2,5 +2,11 @@
     "python.autoComplete.extraPaths": [
         "/home/juancghros/catkin_ws/devel/lib/python2.7/dist-packages",
         "/opt/ros/melodic/lib/python2.7/dist-packages"
-    ]
+    ],
+    "python.analysis.extraPaths": [
+        "/home/juancghros/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "ros.distro": "noetic",
+    "python.pythonPath": "/bin/python3"
 }
