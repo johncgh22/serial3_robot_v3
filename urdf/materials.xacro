@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- Definicion de materiales y colores para Simulación/Visualización -->
 <robot>
 
   <material name="black">

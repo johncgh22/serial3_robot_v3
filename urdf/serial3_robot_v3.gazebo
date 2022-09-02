@@ -32,4 +32,6 @@
  <!-- Link5 -->
   <gazebo reference="end_effector">
     <material>Gazebo/Grey</material>
-  </gazebo> 
+  </gazebo>
+
+</robot>  

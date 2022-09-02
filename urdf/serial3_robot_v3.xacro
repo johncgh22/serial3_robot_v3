@@ -4,7 +4,7 @@
 
     <!--Importamos los elementos de personalización de Gazebo -->
     <xacro:include filename="$(find serial3_robot_v3)/urdf/materials.xacro" />
-    <!-- Importamos el archivo de colores para RViz -->
+    <!-- Importamos el archivo de colores para RViz/Gazebo -->
     <xacro:include filename="$(find serial3_robot_v3)/urdf/serial3_robot_v3.gazebo" />
 
     <!-- Declaramos un "dummy" para fijar 'base_link' en Gazebo -->
@@ -58,7 +58,7 @@
     <link name="e1_link">    
 
         <collision>
-            <origin xyz="0 0 0"rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="package://serial3_robot_v3/meshes/collision/e1_link.STL" />
             </geometry>
@@ -234,5 +234,6 @@
     </transmission>
 
 </robot>    
+
 
 
