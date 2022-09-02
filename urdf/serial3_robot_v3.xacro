@@ -5,7 +5,7 @@
     <!--Importamos los elementos de personalización de Gazebo -->
     <xacro:include filename="$(find serial3_robot_v3)/urdf/materials.xacro" />
     <!-- Importamos el archivo de colores para RViz/Gazebo -->
-    <xacro:include filename="$(find serial3_robot_v3)/urdf/serial3_robot_v3.gazebo" />
+    <xacro:include filename="$(find serial3_robot_v3)/urdf/serial3_robot_v3.gazebo.xacro" />
 
     <!-- Declaramos un "dummy" para fijar 'base_link' en Gazebo -->
     <link name="world" />
