@@ -10,13 +10,14 @@
         <child link="base_link" />
     </joint>
 
+    <!-- Primer Eslabon-->
     <link name="base_link">    
         <inertial>
             <origin xyz="0.021781 -5.6862E-07 0.020002" rpy="0 0 0" />
             <mass value="0.099185" />
             <inertia ixx="2.717E-05" ixy="1.1961E-10" ixz="8.6306E-08" iyy="2.9447E-05" iyz="1.1648E-12" izz="4.9838E-05" />
         </inertial>
-
+        <!-- Definición de los elementos visuales del Robot -->
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -26,6 +27,7 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
+        <!-- Definicion de los elementos de colision del Robot -->
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -34,7 +36,8 @@
         </collision>
     </link>
 
-    <link name="e1_link">    
+    <!-- Segundo Eslabon-->
+    <link name="e1_link">
         <inertial>
             <origin xyz="1.5367E-06 0.0020022 0.016219" rpy="0 0 0" />
             <mass value="0.010841" />
@@ -50,6 +53,7 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
+
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -58,6 +62,7 @@
         </collision>
     </link>
 
+    <!-- Primer Junta -->
     <joint name="base_to_e1_joint" type="revolute">
         <origin xyz="0 0 0.04815" rpy="0 0 0.025007" />
         <parent link="base_link" />
@@ -66,7 +71,8 @@
         <limit lower="-1.5708" upper="1.5708" effort="77" velocity="1.43117" />
     </joint>
 
-    <link name="e2_link">    
+    <!-- Tercer Eslabon-->
+    <link name="e2_link">       
         <inertial>
             <origin xyz="0.1205 9.6594E-07 -0.00070992" rpy="0 0 0" />
             <mass value="0.094125" />
@@ -82,6 +88,7 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
+
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -89,7 +96,7 @@
             </geometry>
         </collision>
     </link>
-
+    <!-- Segunda Junta -->
     <joint name="e1_to_e2_joint" type="revolute">
         <origin xyz="0 0.00025 0.0305" rpy="1.5708 -1.5679 0" />
         <parent link="e1_link" />
@@ -97,8 +104,8 @@
         <axis xyz="0 0 -1" />
         <limit lower="-1.5708" upper="1.5708" effort="133" velocity="1.291543" />
     </joint>
-
-    <link name="e3_link">    
+    <!-- Tercer Eslabón-->
+    <link name="e3_link">       
         <inertial>
             <origin xyz="0.028382 3.6464E-06 0.00077286" rpy="0 0 0" />
             <mass value="0.010442" />
@@ -114,6 +121,7 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
+
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -121,7 +129,7 @@
             </geometry>
         </collision>
     </link>
-
+    <!-- Tercer Junta -->
     <joint name="e2_to_e3_joint" type="revolute">
         <origin xyz="0.237 0 0.00025" rpy="0 0 0.017666" />
         <parent link="e2_link" />
@@ -129,8 +137,8 @@
         <axis xyz="0 0 -1" />
         <limit lower="-1.5708" upper="1.5708" effort="66" velocity="2.1293" />
     </joint>
-
-    <link name="end_effector">    
+    <!-- Ultimo eslabon - Efector Final del Robot -->
+    <link name="end_effector">        
         <inertial>
             <origin xyz="-0.0033957 -1.8646E-10 -1.3153E-09" rpy="0 0 0" />
             <mass value="0.0013531" />
@@ -146,6 +154,7 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
+
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -153,7 +162,7 @@
             </geometry>
         </collision>
     </link>
-
+    <!-- Ultima Junta del Robot -->
     <joint name="e3_to_end_effector_joint" type="fixed">
         <origin xyz="0.18 0 0" rpy="0 0 0" />
         <parent link="e3_link" />
@@ -161,6 +170,7 @@
         <axis xyz="0 0 0" />
     </joint>
     
+    <!-- Definicion de los sistemas de movimiento para las Juntas-->
     <transmission name="trans_base_to_e1_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="base_to_e1_joint">
@@ -171,6 +181,7 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
+
     <transmission name="trans_e1_to_e2_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="e1_to_e2_joint">
@@ -181,6 +192,7 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
+
     <transmission name="trans_e2_to_e3_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="e2_to_e3_joint">
@@ -191,7 +203,7 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-
+    <!-- Definición del controlador para ROS/Gazebo -->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
             <robotNamespace>/</robotNamespace>
