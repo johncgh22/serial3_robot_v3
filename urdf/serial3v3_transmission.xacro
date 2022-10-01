@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<robot>
+
+    <!-- Agregamos la Configuración de los motores/actuadores -->
+    <transmission name="trans_base_to_e1_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="base_to_e1_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="base_to_e1_joint_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_e1_to_e2_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="e1_to_e2_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="e1_to_e2_joint_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="trans_e2_to_e3_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="e2_to_e3_joint">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="e2_to_e3_joint_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+</robot>    
