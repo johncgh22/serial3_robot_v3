@@ -16,15 +16,9 @@ position_trajectory_controller:
   # Definimos restricciones si es necesario  
   constraints:   
     goal_time: 5.0  # Tiempo de Ejecución
-    base_to_e1_joint:
-      trajectory: 0.60
-      goal:       0.15
-    e1_to_e2_joint:
-      trajectory: 0.60
-      goal:       0.15
-     e2_to_e3_joint:
-      trajectory: 0.60
-      goal:       0.15   
+    base_to_e1_joint: {trajectory: 0.60, goal: 0.15}
+    e1_to_e2_joint: {trajectory: 0.60, goal: 0.15}
+    e2_to_e3_joint: {trajectory: 0.60, goal: 0.15}   
 
 # Controladores de Posición Individual
 # Permiten enviar mensajes individuales del tipo Float64 a cada junta por separado

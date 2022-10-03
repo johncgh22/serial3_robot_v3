@@ -1,0 +1,21 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find serial3_robot_v3)/config/serial3v3_controllers.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/serial3v3" args="joint_state_controller
+                                          joint_position_controller
+                                          position_trajectory_controller
+					                      base_to_e1_joint_position_controller
+                                          e1_to_e2_joint_position_controller
+					                      e2_to_e3_joint_position_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+    <remap from="/joint_states" to="/serial3v3/joint_states" />
+  </node>
+
+</launch>
