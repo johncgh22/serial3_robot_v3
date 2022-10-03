@@ -16,5 +16,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find serial3_robot_v3)/urdf.rviz" />
+    args="-d $(find serial3_robot_v3)/launch/serial3_rviz.rviz" />
 </launch>

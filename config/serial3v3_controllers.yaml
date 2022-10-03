@@ -37,8 +37,8 @@ e2_to_e3_joint_position_controller:
 
 # Controladores de Posición por Grupo
 # Permiten el envío de un solo mensaje del tipo Float64MultiArray a todas las juntas
-joint_position_controller:
-  type: postion_controllers/JointGroupPositionController
+joint_group_position_controller:
+  type: position_controllers/JointGroupPositionController
   joints:
     - base_to_e1_joint
     - e1_to_e2_joint
