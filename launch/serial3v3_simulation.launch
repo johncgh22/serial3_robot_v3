@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <launch>
 	<rosparam file="$(find serial3_robot_v3)/config/serial3v3_controllers.yaml" command="load" />
+	<rosparam file="$(find serial3_robot_v3)/config/gazebo_pid.yaml" command="load" />
 	<arg name="serial3v3_controllers" default="joint_state_controller
-                                               joint_position_controller
-                                               position_trajectory_controller"/>
+                                        	   position_trajectory_controller"/>
 
 	<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"
 		args="$(arg serial3v3_controllers)" ns="/serial3v3" />

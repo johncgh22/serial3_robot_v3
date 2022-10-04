@@ -1,45 +1,46 @@
-# Creamos todos los joint states
-# Creamos los tópicos necesarios para ROS
-joint_state_controller:
-  type: joint_state_controller/JointStateController
-  publish_rate: 50 #Hz
+serial3v3:
+  # Creamos todos los joint states
+  # Creamos los tópicos necesarios para ROS
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50 #Hz
 
-# Creamos el Joint Trajectory Controller
-# Referencia: http://wiki.ros.org/joint_trajectory_controller
-position_trajectory_controller:
-  type: position_controllers/JointTrajectoryController
-  # Agregamos las juntas del robot (URDF)
-  joints:
-    - base_to_e1_joint
-    - e1_to_e2_joint
-    - e2_to_e3_joint
-  # Definimos restricciones si es necesario  
-  constraints:   
-    goal_time: 5.0  # Tiempo de Ejecución
-    base_to_e1_joint: {trajectory: 0.60, goal: 0.15}
-    e1_to_e2_joint: {trajectory: 0.60, goal: 0.15}
-    e2_to_e3_joint: {trajectory: 0.60, goal: 0.15}   
+  # Creamos el Joint Trajectory Controller
+  # Referencia: http://wiki.ros.org/joint_trajectory_controller
+  position_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    # Agregamos las juntas del robot (URDF)
+    joints:
+      - base_to_e1_joint
+      - e1_to_e2_joint
+      - e2_to_e3_joint
+    # Definimos restricciones si es necesario  
+    constraints:   
+      goal_time: 5.0  # Tiempo de Ejecución
+      base_to_e1_joint: {trajectory: 0.60, goal: 0.15}
+      e1_to_e2_joint: {trajectory: 0.60, goal: 0.15}
+      e2_to_e3_joint: {trajectory: 0.60, goal: 0.15}   
 
-# Controladores de Posición Individual
-# Permiten enviar mensajes individuales del tipo Float64 a cada junta por separado
-base_to_e1_joint_position_controller:
-  type: position_controllers/JointPositionController
-  joint: base_to_e1_joint
-  pid: {p: 100.0, i: 0.01, d: 10.0}
-e1_to_e2_joint_position_controller:
-  type: position_controllers/JointPositionController
-  joint: e1_to_e2_joint
-  pid: {p: 100.0, i: 0.01, d: 10.0}        
-e2_to_e3_joint_position_controller:
-  type: position_controllers/JointPositionController
-  joint: e2_to_e3_joint
-  pid: {p: 100.0, i: 0.01, d: 10.0}  
+  # Controladores de Posición Individual
+  # Permiten enviar mensajes individuales del tipo Float64 a cada junta por separado
+  base_to_e1_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: base_to_e1_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  e1_to_e2_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: e1_to_e2_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}        
+  e2_to_e3_joint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: e2_to_e3_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}  
 
-# Controladores de Posición por Grupo
-# Permiten el envío de un solo mensaje del tipo Float64MultiArray a todas las juntas
-joint_group_position_controller:
-  type: position_controllers/JointGroupPositionController
-  joints:
-    - base_to_e1_joint
-    - e1_to_e2_joint
-    - e2_to_e3_joint
+  # Controladores de Posición por Grupo
+  # Permiten el envío de un solo mensaje del tipo Float64MultiArray a todas las juntas
+  joint_group_position_controller:
+    type: position_controllers/JointGroupPositionController
+    joints:
+      - base_to_e1_joint
+      - e1_to_e2_joint
+      - e2_to_e3_joint
