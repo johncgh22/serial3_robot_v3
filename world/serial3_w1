@@ -105,7 +105,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/collision/base_link.STL</uri>
+              <uri>/home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/collision/base_link.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -127,7 +127,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/visual/base_link.STL</uri>
+              <uri>home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/visual/base_link.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -158,7 +158,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/collision/e1_link.STL</uri>
+              <uri>home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/collision/e1_link.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -180,7 +180,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/visual/e1_link.STL</uri>
+              <uri>home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/visual/e1_link.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -225,7 +225,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/collision/e2_link.STL</uri>
+              <uri>home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/collision/e2_link.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -247,7 +247,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/visual/e2_link.STL</uri>
+              <uri>home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/visual/e2_link.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -292,7 +292,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/collision/e3_link.STL</uri>
+              <uri>home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/collision/e3_link.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -314,7 +314,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/johnsurface/catkin_ws/src/serial3_robot_v3/meshes/collision/end_effector.STL</uri>
+              <uri>home/juancgh/rosdep/catkin_ws/src/serial3_robot_v3/meshes/collision/end_effector.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>

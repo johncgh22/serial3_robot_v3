@@ -8,8 +8,6 @@
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
 	  output="screen" ns="/serial3v3" args="joint_state_controller
-                                          joint_group_position_controller
-                                          position_trajectory_controller
 					                                base_to_e1_joint_position_controller
                                           e1_to_e2_joint_position_controller
 					                                e2_to_e3_joint_position_controller"/>

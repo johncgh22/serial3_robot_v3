@@ -10,7 +10,7 @@
         <child link="base_link" />
     </joint>
 
-    <!-- Primer Eslabon-->
+    <!-- Eslabon Base -->
     <link name="base_link">    
         <inertial>
             <origin xyz="0.021781 -5.6862E-07 0.020002" rpy="0 0 0" />
@@ -36,7 +36,7 @@
         </collision>
     </link>
 
-    <!-- Segundo Eslabon-->
+    <!-- Primer Eslabon-->
     <link name="e1_link">
         <inertial>
             <origin xyz="1.5367E-06 0.0020022 0.016219" rpy="0 0 0" />
@@ -71,7 +71,7 @@
         <limit lower="-1.5708" upper="1.5708" effort="77" velocity="1.43117" />
     </joint>
 
-    <!-- Tercer Eslabon-->
+    <!-- Segundo Eslabon-->
     <link name="e2_link">       
         <inertial>
             <origin xyz="0.1205 9.6594E-07 -0.00070992" rpy="0 0 0" />
@@ -96,6 +96,7 @@
             </geometry>
         </collision>
     </link>
+    
     <!-- Segunda Junta -->
     <joint name="e1_to_e2_joint" type="revolute">
         <origin xyz="0 0.00025 0.0305" rpy="1.5708 -1.5679 0" />
@@ -104,6 +105,7 @@
         <axis xyz="0 0 -1" />
         <limit lower="-1.5708" upper="1.5708" effort="133" velocity="1.291543" />
     </joint>
+
     <!-- Tercer Eslabón-->
     <link name="e3_link">       
         <inertial>
@@ -129,6 +131,7 @@
             </geometry>
         </collision>
     </link>
+
     <!-- Tercer Junta -->
     <joint name="e2_to_e3_joint" type="revolute">
         <origin xyz="0.237 0 0.00025" rpy="0 0 0.017666" />
@@ -137,6 +140,7 @@
         <axis xyz="0 0 -1" />
         <limit lower="-1.5708" upper="1.5708" effort="66" velocity="2.1293" />
     </joint>
+
     <!-- Ultimo eslabon - Efector Final del Robot -->
     <link name="end_effector">        
         <inertial>
@@ -162,6 +166,7 @@
             </geometry>
         </collision>
     </link>
+    
     <!-- Ultima Junta del Robot -->
     <joint name="e3_to_end_effector_joint" type="fixed">
         <origin xyz="0.18 0 0" rpy="0 0 0" />
@@ -203,7 +208,7 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-
+    <!--Definicion de los sistemas de movimiento para las Juntas>
     <transmission name="trans_base_to_e1_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="base_to_e1_joint">
@@ -236,11 +241,13 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
+    < Definicion de los sistemas de movimiento para las Juntas-->
 
     <!-- Definición del controlador para ROS/Gazebo -->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
             <robotNamespace>/serial3v3</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
     </gazebo>
 

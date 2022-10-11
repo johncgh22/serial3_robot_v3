@@ -1,10 +1,21 @@
 <?xml version="1.0"?>
 <launch>
 
-  <!-- Cargamos el URDF del robot -->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find serial3_robot_v3)/urdf/serial3_robot_v3.xacro'" />
-    
-  <!-- Lo mostramos en RViz  -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find serial3_robot_v3)/launch/serial3_rviz.rviz"/>
+  <!-- Habilitamos el argumento para ingresar la ubicacion del modelo del Robot -->
+  <arg name="model" default="" />
+
+  <!-- Cargamos el URDF del robot utilizando la ubicación definida anteriormente -->
+  <param name="robot_description" command="cat $(arg model)" />
+
+  <!-- Cargamos el complemento para verificar el movimiento de las juntas -->
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" > 
+    	<param name="use_gui" value="true" />
+  </node>	
+
+  <!-- Generar el nodo del movimiento de las juntas -->
+  <node name="robot_state_publisher_gui" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- Lo mostramos en RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" args=""/>
 
 </launch>
