@@ -3,7 +3,7 @@ serial3v3:
   # Creamos los tópicos necesarios para ROS
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 50 #Hz
+    publish_rate: 50 # Hz
 
   # Creamos el Joint Trajectory Controller
   # Referencia: http://wiki.ros.org/joint_trajectory_controller
