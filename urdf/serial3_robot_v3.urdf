@@ -68,7 +68,7 @@
         <parent link="base_link" />
         <child link="e1_link" />
         <axis xyz="0 0 -1" />
-        <limit lower="-1.5708" upper="1.5708" effort="77" velocity="1.43117" />
+        <limit lower="-1.5708" upper="1.5708" effort="0.0" velocity="0.0" />   <!--77 / 1.43117-->
     </joint>
 
     <!-- Segundo Eslabon-->
@@ -103,7 +103,7 @@
         <parent link="e1_link" />
         <child link="e2_link" />
         <axis xyz="0 0 -1" />
-        <limit lower="-1.5708" upper="1.5708" effort="133" velocity="1.291543" />
+        <limit lower="-1.5708" upper="1.5708" effort="0.0" velocity="0.0" />   <!--133 / 1.291543-->
     </joint>
 
     <!-- Tercer Eslabón-->
@@ -138,7 +138,7 @@
         <parent link="e2_link" />
         <child link="e3_link" />
         <axis xyz="0 0 -1" />
-        <limit lower="-1.5708" upper="1.5708" effort="66" velocity="2.1293" />
+        <limit lower="-1.5708" upper="1.5708" effort="0.0" velocity="0.0" />    <!--66 / 2.1293-->
     </joint>
 
     <!-- Ultimo eslabon - Efector Final del Robot -->
