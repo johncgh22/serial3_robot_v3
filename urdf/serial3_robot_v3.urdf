@@ -190,7 +190,7 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-    <!--Definicion de los sistemas de movimiento para las Juntas>
+    <!-- Definición del controlador para ROS/Gazebo >
     <transmission name="trans_base_to_e1_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="base_to_e1_joint">
@@ -223,8 +223,7 @@
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-    < Definicion de los sistemas de movimiento para las Juntas-->
-
+    < Definición del controlador para ROS/Gazebo -->
     <!-- Definición del controlador para ROS/Gazebo -->
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
