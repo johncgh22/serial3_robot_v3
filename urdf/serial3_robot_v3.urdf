@@ -9,7 +9,6 @@
         <parent link="world" />
         <child link="base_link" />
     </joint>
-
     <!-- Eslabon Base -->
     <link name="base_link">    
         <inertial>
@@ -35,7 +34,6 @@
             </geometry>
         </collision>
     </link>
-
     <!-- Primer Eslabon-->
     <link name="e1_link">
         <inertial>
@@ -43,7 +41,6 @@
             <mass value="0.010841" />
             <inertia ixx="3.3452E-06" ixy="-1.561E-17" ixz="1.5694E-10" iyy="1.3848E-06" iyz="6.927E-18" izz="3.0336E-06" />
         </inertial>
-
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -53,7 +50,6 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
-
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -61,16 +57,14 @@
             </geometry>
         </collision>
     </link>
-
     <!-- Primer Junta -->
     <joint name="base_to_e1_joint" type="revolute">
         <origin xyz="0 0 0.04815" rpy="0 0 0.025007" />
         <parent link="base_link" />
         <child link="e1_link" />
         <axis xyz="0 0 -1" />
-        <limit lower="-1.5708" upper="1.5708" effort="0.0" velocity="0.0" />   <!--77 / 1.43117-->
+        <limit lower="-1.5708" upper="1.5708" effort="77" velocity="1.43" />   <!--77 / 1.43117-->
     </joint>
-
     <!-- Segundo Eslabon-->
     <link name="e2_link">       
         <inertial>
@@ -78,7 +72,6 @@
             <mass value="0.094125" />
             <inertia ixx="8.4992E-06" ixy="1.9769E-11" ixz="-6.3555E-14" iyy="2.1047E-05" iyz="-7.3048E-15" izz="2.3013E-05" />
         </inertial>
-
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -88,24 +81,21 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
-
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="package://serial3_robot_v3/meshes/collision/e2_link.STL" />
             </geometry>
         </collision>
-    </link>
-    
+    </link>   
     <!-- Segunda Junta -->
     <joint name="e1_to_e2_joint" type="revolute">
         <origin xyz="0 0.00025 0.0305" rpy="1.5708 -1.5679 0" />
         <parent link="e1_link" />
         <child link="e2_link" />
         <axis xyz="0 0 -1" />
-        <limit lower="-1.5708" upper="1.5708" effort="0.0" velocity="0.0" />   <!--133 / 1.291543-->
+        <limit lower="-1.5708" upper="1.5708" effort="133" velocity="1.29" />   <!--133 / 1.291543-->
     </joint>
-
     <!-- Tercer Eslabón-->
     <link name="e3_link">       
         <inertial>
@@ -113,7 +103,6 @@
             <mass value="0.010442" />
             <inertia ixx="2.9789E-06" ixy="-1.5694E-10" ixz="5.7337E-14" iyy="5.9628E-06" iyz="1.0873E-15" izz="3.9543E-06" />
         </inertial>
-
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -123,7 +112,6 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
-
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -131,16 +119,14 @@
             </geometry>
         </collision>
     </link>
-
     <!-- Tercer Junta -->
     <joint name="e2_to_e3_joint" type="revolute">
         <origin xyz="0.237 0 0.00025" rpy="0 0 0.017666" />
         <parent link="e2_link" />
         <child link="e3_link" />
         <axis xyz="0 0 -1" />
-        <limit lower="-1.5708" upper="1.5708" effort="0.0" velocity="0.0" />    <!--66 / 2.1293-->
+        <limit lower="-1.5708" upper="1.5708" effort="66" velocity="2.13" />    <!--66 / 2.1293-->
     </joint>
-
     <!-- Ultimo eslabon - Efector Final del Robot -->
     <link name="end_effector">        
         <inertial>
@@ -148,7 +134,6 @@
             <mass value="0.0013531" />
             <inertia ixx="6.1653E-08" ixy="-6.4106E-16" ixz="-6.4728E-15" iyy="4.7314E-08" iyz="-8.7372E-15" izz="4.683E-08" />
         </inertial>
-
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -158,23 +143,20 @@
                 <color rgba="0.75294 0.75294 0.75294 1" />
             </material>
         </visual>
-
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
                 <mesh filename="package://serial3_robot_v3/meshes/collision/end_effector.STL" />
             </geometry>
         </collision>
-    </link>
-    
+    </link>    
     <!-- Ultima Junta del Robot -->
     <joint name="e3_to_end_effector_joint" type="fixed">
         <origin xyz="0.18 0 0" rpy="0 0 0" />
         <parent link="e3_link" />
         <child link="end_effector" />
         <axis xyz="0 0 0" />
-    </joint>
-    
+    </joint>    
     <!-- Definicion de los sistemas de movimiento para las Juntas-->
     <transmission name="trans_base_to_e1_joint">
         <type>transmission_interface/SimpleTransmission</type>
@@ -250,5 +232,4 @@
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
         </plugin>
     </gazebo>
-
 </robot>
