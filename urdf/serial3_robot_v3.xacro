@@ -7,7 +7,7 @@
     <!-- Importamos el archivo de colores para RViz/Gazebo -->
     <xacro:include filename="$(find serial3_robot_v3)/urdf/serial3v3.gazebo.xacro" />
      <!-- Importamos el archivo de configuración de transmision para motores -->
-    <xacro:include filename="$(find serial3_robot_v3)/urdf/serial3v3.transmission.xacro" />
+    <xacro:include filename="$(find serial3_robot_v3)/urdf/serial3v3_transmission.xacro" />
 
     <!-- Declaramos un "dummy" para fijar 'base_link' en Gazebo -->
     <link name="world" />
@@ -53,6 +53,7 @@
         <child link="e1_link" />
         <origin xyz="0 0 0.04815" rpy="0 0 0.025007" />
         <axis xyz="0 0 -1" />
+        <limit lower="-1.5708" upper="1.5708" effort="77" velocity="1.43" />
         <dynamics damping="0.7"/>
     </joint>
 
@@ -92,6 +93,7 @@
         <child link="e2_link" />
         <origin xyz="0 0.00025 0.0305" rpy="1.5708 -1.5679 0" />
         <axis xyz="0 0 -1" />
+        <limit lower="-1.5708" upper="1.5708" effort="133" velocity="1.29" />
         <dynamics damping="0.7"/>
     </joint>
 
@@ -130,6 +132,7 @@
         <child link="e3_link" />
         <origin xyz="0.237 0 0.00025" rpy="0 0 0.017666" />
         <axis xyz="0 0 -1" />
+        <limit lower="-1.5708" upper="1.5708" effort="66" velocity="2.13" />
         <dynamics damping="0.7"/>
     </joint>
 
@@ -161,7 +164,7 @@
                 iyz="1.0873E-15"
                 izz="3.9543E-06" />
         </inertial>
-    <link/>
+    </link>
 
     <joint name="e3_to_end_effector_joint" type="fixed">    
         <parent link="e3_link" />
